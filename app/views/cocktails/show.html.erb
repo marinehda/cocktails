@@ -1,0 +1,29 @@
+<div class="wrapper-image">
+  <div class="yellow-card text-center">
+
+    <%= image_tag(@cocktail.name.downcase + '.jpg', class:"mask") %>
+  <h1><%= @cocktail.name %></h1>
+
+  <ul>
+  <% @cocktail.doses.each do |dose| %>
+    <li>
+    <%= dose.description %> of <%= Ingredient.find(dose.ingredient_id).name %>
+    <%= link_to dose, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="fa fa-trash-o"></i>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+    <div class="card-white">
+      <p> Add a dose </p>
+      <%= render 'form_dose' %>
+    </div>
+  </div>
+
+
+  <div class="flex-item">
+      <%= link_to "Back to list", cocktails_path %>
+  </div>
+
+  </div>
+</div>

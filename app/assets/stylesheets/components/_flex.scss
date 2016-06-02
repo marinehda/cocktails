@@ -1,0 +1,10 @@
+.flexbox {
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.flex-item {
+  flex: 0 0 20%;
+}
