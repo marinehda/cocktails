@@ -1,0 +1,9 @@
+<%= simple_form_for([@cocktail, @review]) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :content %>
+
+  <%= f.input :rating, collection: (1..5), prompt:'Rating' %>
+
+  <%= f.button :submit, class:"btn btn-success btn-lg" %>
+<% end %>

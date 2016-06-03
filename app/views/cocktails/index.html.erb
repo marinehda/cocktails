@@ -9,10 +9,14 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col-xs-12 col-sm-4 card">
-      <%= link_to image_tag(cocktail.name.downcase + '.jpg', class:"card"), cocktail %>
+      <%= link_to cl_image_tag(cocktail.photo, :format => :png, :transformation=>[
+  {:width=>100, :height=>100, :radius=>"10", :crop=>"fit"},
+  {:width=>100}
+  ]), cocktail %>
       <h2 class="card-description"> <%= cocktail.name %> </h2>
     </div>
     <% end %>
   </div>
 </div>
 
+<%=  %>

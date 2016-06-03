@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'figaro'
+gem 'cloudinary'
+gem 'carrierwave'
 
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production

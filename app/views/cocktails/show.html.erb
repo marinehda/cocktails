@@ -1,9 +1,11 @@
 <div class="wrapper-image">
   <div class="yellow-card text-center">
 
-    <%= image_tag(@cocktail.name.downcase + '.jpg', class:"mask") %>
-  <h1><%= @cocktail.name %></h1>
-
+    <%= cl_image_tag(@cocktail.photo, :format => :png, :transformation=>[:height=>150, :radius=>20, :width=>150, :crop=>"fill"]) %>
+  <h1><%= @cocktail.name %><%= link_to @cocktail, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="fa fa-trash-o"></i>
+      <% end %>
+</h1>
   <ul>
   <% @cocktail.doses.each do |dose| %>
     <li>
@@ -18,11 +20,25 @@
       <p> Add a dose </p>
       <%= render 'form_dose' %>
     </div>
+    <div class="card-white">
+      <p> Add a review </p>
+      <%= render 'form_review' %>
+    </div>
   </div>
+  <div class="review">
+  <ul>
+  <% @cocktail.reviews.each do |review| %>
+    <li>
+    <%= review.content %><% review.rating.times do %>
+      <i class="fa fa-star"></i>
+      <% end %>
 
-
-  <div class="flex-item">
-      <%= link_to "Back to list", cocktails_path %>
+    </li>
+  <% end %>
+  </ul>
+  </div>
+  <div>
+      <%= link_to "<< Back", cocktails_path, class:"btn btn-info btn-lg dark-blue" %>
   </div>
 
   </div>
